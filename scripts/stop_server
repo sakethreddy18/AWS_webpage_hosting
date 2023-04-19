@@ -1,5 +1,5 @@
 #!/bin/bash
-isExistApp = `pgrep nginx`
+isExistApp = `pgrep httpd`
 if [[ -n  $isExistApp ]]; then
-    sudo service nginx stop        
+    service httpd stop        
 fi

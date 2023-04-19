@@ -51,6 +51,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="querybox.php">sponsors</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="querybox.php">careers</a>
+                </li>
 
             </ul>
         </div>

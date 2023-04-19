@@ -1,2 +1,2 @@
 #!/bin/bash
-yum install -y nginx
+yum install -y httpd

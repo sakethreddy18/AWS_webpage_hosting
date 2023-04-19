@@ -62,7 +62,7 @@
     <!-- table -->
 
     <div class="container">
-        <h1>Patient Details</h1>
+        <h1>Test Details</h1>
         <table class="table table-hover">
             <tr>
                 <th>Patient ID</th>

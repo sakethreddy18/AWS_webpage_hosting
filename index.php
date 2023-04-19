@@ -43,13 +43,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="users_view.php">RBC Count <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="view_results.php">View results <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="querybox.php">WBC Count</a>
+                    <a class="nav-link" href="update.php">Update </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="querybox.php">HCT</a>
+                    <a class="nav-link" href="querybox.php">sponsors</a>
                 </li>
 
             </ul>
@@ -128,7 +128,7 @@
 $host = "cc-db-4.chr8rexir5gb.us-east-1.rds.amazonaws.com";
 $dbname = "bloodtest";
 $user = "admin";
-$pass = "gsr182002";
+$pass = "gsr18@2002";
 
 $mysql = mysqli_connect($host, $user, $pass, $dbname);
 

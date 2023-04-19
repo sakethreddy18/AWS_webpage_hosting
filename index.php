@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <title>cc project</title>
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,12 +23,189 @@
     <script src="https://kit.fontawesome.com/c4a758ffac.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <style>
-        .card-footer {
+        .wave-group {
             position: relative;
-            top: 50px;
-            left: 700px;
+        }
+
+        .wave-group .input {
+            font-size: 16px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #515151;
+            background: transparent;
+        }
+
+        .wave-group .input:focus {
+            outline: none;
+        }
+
+        .wave-group .label {
+            color: black;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            display: flex;
+        }
+
+        .wave-group .label-char {
+            transition: 0.2s ease all;
+            transition-delay: calc(var(--index) * 0.05s);
+        }
+
+        .wave-group .input:focus~label .label-char,
+        .wave-group .input:valid~label .label-char {
+            transform: translateY(-20px);
+            font-size: 14px;
+            color: #5264ae;
+        }
+
+        .wave-group .bar {
+            position: relative;
+            display: block;
+            width: 200px;
+        }
+
+        .wave-group .bar:before,
+        .wave-group .bar:after {
+            content: "";
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #5264ae;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        .wave-group .bar:before {
+            left: 50%;
+        }
+
+        .wave-group .bar:after {
+            right: 50%;
+        }
+
+        .wave-group .input:focus~.bar:before,
+        .wave-group .input:focus~.bar:after {
+            width: 50%;
+        }
+
+        .rbc-text {
+            position: absolute;
+            left: 120px;
+            top: 120px;
+        }
+
+        .wbc-text {
+            position: absolute;
+            left: 220px;
+            top: 220px;
+        }
+
+        .name {
+            position: absolute;
+            left: 300px;
+            top: 100px;
+        }
+
+        .specimen {
+            position: absolute;
+            left: 900px;
+            top: 100px;
+        }
+
+        .lab_no {
+            position: absolute;
+            left: 300px;
+            top: 200px;
+        }
+
+        .gender {
+            position: absolute;
+            left: 900px;
+            top: 200px;
+        }
+
+        .hct {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+        .rbc {
+            position: absolute;
+            left: 900px;
+            top: 300px;
+        }
+
+        .mch {
+            position: absolute;
+            left: 300px;
+            top: 400px;
+        }
+
+        .lymphocytes {
+            position: absolute;
+            left: 900px;
+            top: 400px;
+        }
+
+        .wbc {
+            position: absolute;
+            left: 300px;
+            top: 500px;
+        }
+
+        .mcv {
+            position: absolute;
+            left: 900px;
+            top: 500px;
+        }
+
+        .platelet_count {
+            position: absolute;
+            left: 300px;
+            top: 600px;
+        }
+
+        /* inspired form gumroad website */
+        .button {
+            --bg: #000;
+            --hover-bg: #ff90e8;
+            --hover-text: #000;
+            color: #fff;
+            border: 1px solid var(--bg);
+            border-radius: 4px;
+            padding: 0.8em 2em;
+            background: var(--bg);
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            color: var(--hover-text);
+            transform: translate(-0.25rem, -0.25rem);
+            background: var(--hover-bg);
+            box-shadow: 0.25rem 0.25rem var(--bg);
+        }
+
+        .button:active {
+            transform: translate(0);
+            box-shadow: none;
+        }
+
+        .button {
+            position: absolute;
+            top: 650px;
+            left: 600px;
         }
     </style>
+    <title>CC Project</title>
 </head>
 
 <body>
@@ -51,78 +226,177 @@
                 <li class="nav-item">
                     <a class="nav-link" href="querybox.php">sponsors</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="querybox.php">careers</a>
-                </li>
 
             </ul>
         </div>
     </nav>
-    <br>
-    <br>
 
-
-    <!-- form -->
-    <form action="" method="POST">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="patient_name"> Patient Name</label>
-                        <input type="text" name="patient_name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lab_number"> lab number</label>
-                        <input type="number" name="lab_number" class="form-control" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="specimen_number"> specimen number</label>
-                    <input type="number" name="specimen_number" class="form-control" required>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="hct"> HCT</label>
-                        <input type="number" step="any" name="hct" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="rbc"> RBC</label>
-                        <input type="number" step="any" name="rbc" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mch"> MCH</label>
-                        <input type="number" step="any" name="mch" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lymphocytes"> Lymphocytes</label>
-                        <input type="number" step="any" name="lymphocytes" class="form-control" required>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="wbc"> WBC</label>
-                        <input type="number" step="any" name="wbc" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="platelet_count"> platelet count</label>
-                        <input type="number" step="any" name="platelet_count" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mcv"> MCV</label>
-                        <input type="number" step="any" name="mcv" class="form-control" required>
-                    </div>
-                </div>
-            </div>
-
+    <div class="name">
+        <div class="wave-group">
+            <input required="" type="text" class="input" name="patient_name" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">N</span>
+                <span class="label-char" style="--index: 1">a</span>
+                <span class="label-char" style="--index: 2">m</span>
+                <span class="label-char" style="--index: 3">e</span>
+            </label>
         </div>
-        <div class="card-footer">
-            <button class="btn btn-danger">Cancel</button>
-
-            <button type="submit" class="btn btn-primary" name="submit">submit</button>
-        </div>
-    </form>
     </div>
+
+    <div class="specimen">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="specimen_number" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">S</span>
+                <span class="label-char" style="--index: 1">P</span>
+                <span class="label-char" style="--index: 2">E</span>
+                <span class="label-char" style="--index: 3">C</span>
+                <span class="label-char" style="--index: 4">I</span>
+                <span class="label-char" style="--index: 5">M</span>
+                <span class="label-char" style="--index: 6">E</span>
+                <span class="label-char" style="--index: 7">N</span>
+                <span class="label-char" style="--index: 8">_</span>
+                <span class="label-char" style="--index: 9">N</span>
+                <span class="label-char" style="--index: 10">O</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="lab_no">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="lab_number" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">L</span>
+                <span class="label-char" style="--index: 1">A</span>
+                <span class="label-char" style="--index: 2">B</span>
+                <span class="label-char" style="--index: 3">_</span>
+                <span class="label-char" style="--index: 4">N</span>
+                <span class="label-char" style="--index: 5">O</span>
+            </label>
+        </div>
+    </div>
+    <div class="gender">
+        <div class="wave-group">
+            <input required="" type="text" class="input" name="gender" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">G</span>
+                <span class="label-char" style="--index: 1">E</span>
+                <span class="label-char" style="--index: 2">N</span>
+                <span class="label-char" style="--index: 3">D</span>
+                <span class="label-char" style="--index: 4">E</span>
+                <span class="label-char" style="--index: 5">R</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="hct">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="hct" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">H</span>
+                <span class="label-char" style="--index: 1">C</span>
+                <span class="label-char" style="--index: 2">T</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="rbc">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="rbc" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">R</span>
+                <span class="label-char" style="--index: 1">B</span>
+                <span class="label-char" style="--index: 2">C</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="mch">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="mch" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">M</span>
+                <span class="label-char" style="--index: 1">C</span>
+                <span class="label-char" style="--index: 2">H</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="lymphocytes">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="lymphocytes" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">L</span>
+                <span class="label-char" style="--index: 1">Y</span>
+                <span class="label-char" style="--index: 2">M</span>
+                <span class="label-char" style="--index: 3">P</span>
+                <span class="label-char" style="--index: 4">H</span>
+                <span class="label-char" style="--index: 5">O</span>
+                <span class="label-char" style="--index: 6">C</span>
+                <span class="label-char" style="--index: 7">Y</span>
+                <span class="label-char" style="--index: 8">T</span>
+                <span class="label-char" style="--index: 9">E</span>
+                <span class="label-char" style="--index: 10">S</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="wbc">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="wbc" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">W</span>
+                <span class="label-char" style="--index: 1">B</span>
+                <span class="label-char" style="--index: 2">C</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="mcv">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="mcv" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">M</span>
+                <span class="label-char" style="--index: 1">C</span>
+                <span class="label-char" style="--index: 2">V</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="platelet_count">
+        <div class="wave-group">
+            <input required="" type="number" step="any" class="input" name="platelet_count" />
+            <span class="bar"></span>
+            <label class="label">
+                <span class="label-char" style="--index: 0">P</span>
+                <span class="label-char" style="--index: 1">L</span>
+                <span class="label-char" style="--index: 2">A</span>
+                <span class="label-char" style="--index: 3">T</span>
+                <span class="label-char" style="--index: 4">E</span>
+                <span class="label-char" style="--index: 5">L</span>
+                <span class="label-char" style="--index: 6">E</span>
+                <span class="label-char" style="--index: 7">T</span>
+                <span class="label-char" style="--index: 8">_</span>
+                <span class="label-char" style="--index: 9">C</span>
+                <span class="label-char" style="--index: 10">O</span>
+                <span class="label-char" style="--index: 10">U</span>
+                <span class="label-char" style="--index: 10">N</span>
+                <span class="label-char" style="--index: 10">T</span>
+            </label>
+        </div>
+    </div>
+
+    <button class="button" type="submit">submit</button>
 </body>
 
 </html>

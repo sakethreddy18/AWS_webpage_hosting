@@ -235,7 +235,7 @@
             </ul>
         </div>
     </nav>
-    <h1>Modify</h1>
+    <h1>Modify page</h1>
 
     <form action="#" method="POST">
         <div class="name">

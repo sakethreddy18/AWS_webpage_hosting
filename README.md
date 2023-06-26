@@ -1,4 +1,4 @@
-# cc_cicd_pipeline
+# AWS web page hosting
 Web Page Hosting on nginx server using AWS EC2 , RDS , VPC  and CI/CD pipeline integrated with GitHub using  AWS IAM Roles , CodeDeploy and CodePipeline 
 ![Screenshot (1000)](https://user-images.githubusercontent.com/81903264/233162870-fe8d7027-8cc7-4590-93b6-3125943a1b03.png)
 ![Screenshot (1001)](https://user-images.githubusercontent.com/81903264/233162822-770fe4d7-dc43-4ca2-b85c-863c55d55aad.png)
